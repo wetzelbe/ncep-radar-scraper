@@ -1,0 +1,15 @@
+version: "3.2"
+
+services:
+  scraper:
+    restart: unless-stopped
+    volumes:
+     - /mnt/sdb1/DATASET/MRMS:/data
+    build: ./scraper
+  explorer:
+    restart: unless-stopped
+    volumes:
+     - /mnt/sdb1/DATASET/MRMS:/data
+    build: ./explorer
+    ports:
+     - 8501:8501
