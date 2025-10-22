@@ -53,6 +53,7 @@ def add_satellite_imagery(fig: go.Figure, level: int, radar_bounds: tuple[tuple[
     )
         
 
+# Currently not used
 @st.cache_data
 def read_elevation_data():
   elevation = rxr.open_rasterio('elevation_continental_us.tif', masked=True)

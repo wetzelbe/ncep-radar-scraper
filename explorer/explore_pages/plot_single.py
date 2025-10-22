@@ -10,24 +10,6 @@ from explore_pages.map_utils import add_satellite_imagery, get_elevation_image
 
 DATASET_BASE_DIR = sys.argv[1]
 
-bamako= [[0.0, 'rgb(0, 63, 76)'], # a scientific colorscale for dem data
-[0.1, 'rgb(29, 81, 59)'],
-[0.2, 'rgb(55, 98, 43)'],
-[0.3, 'rgb(79, 114, 30)'],
-[0.4, 'rgb(103, 129, 16)'],
-[0.5, 'rgb(136, 142, 2)'],
-[0.6, 'rgb(169, 154, 21)'],
-[0.7, 'rgb(192, 171, 45)'],
-[0.8, 'rgb(214, 188, 74)'],
-[0.9, 'rgb(234, 209, 112)'],
-[1.0, 'rgb(254, 229, 152)']]
-
-dem = [
-  [0.0, 'green'],
-  [0.8, 'brown'],
-  [1.0, 'white']
-]
-
 radar_color_scale = px.colors.sequential.Electric
 radar_color_scale[0] = 'rgba(0,0,0,0)'
 
@@ -98,7 +80,6 @@ with st.spinner("Plotting"):
       add_satellite_imagery(fig, MAP_LEVEL, radar_bounds_image, BASE_MAP)
     else:
       add_satellite_imagery(fig, MAP_LEVEL, ((0,255), (0,255)), BASE_MAP)
-  #fig.add_trace(go.Heatmap(z=elevation_map[0], name="Elevation", colorscale='Greys' , x=elevation_map[2], y=elevation_map[1]))
   fig.add_trace(go.Histogram2d(x=df['x'], y=df['y'], z=df['unknown'], name="Radar", histfunc='avg', nbinsx=radar_nbinsx*RADAR_RESOLUTION, nbinsy=radar_nbinsy*RADAR_RESOLUTION, colorscale=radar_color_scale))
   fig.update_yaxes(
       scaleanchor="x",
