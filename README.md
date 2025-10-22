@@ -40,3 +40,7 @@ Note that there are two Map providers you can choose from, but please respect th
 
 ## Installation
 For easy setup, everything is wrapped in a simple docker compose script: [docker-compose.yml](docker-compose.yml). You will need to edit the volume and optionally the port definitions to suit your setup.
+
+## Outlook
+- Integrate data from the dwd: [https://opendata.dwd.de/weather/radar/composite/dmax/](https://opendata.dwd.de/weather/radar/composite/dmax/)
+- build actual dataset for training from raw files
